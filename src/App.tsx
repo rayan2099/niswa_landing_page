@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import type { Group } from 'three';
-import { ShowcaseApp, type ShowcaseFeature } from 'niswah-app/src/showcase/ShowcaseApp.tsx';
+import { ShowcaseApp, type ShowcaseFeature } from 'niswah-app/src/showcase/ShowcaseApp';
 
 const features: Array<{ id: ShowcaseFeature; ar: string; en: string }> = [
   { id: 'today', ar: 'اليوم', en: 'Today' },
