@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host=0.0.0.0",
     "build": "tsc --noEmit -p tsconfig.app.json && vite build",
-    "preview": "vite preview --host=0.0.0.0"
+    "preview": "vite preview --host=0.0.0.0",
+    "setup:niswah": "bash scripts/setup-niswah.sh"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.6",
@@ -17,8 +18,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "three": "^0.180.0",
-    "tailwindcss": "^4.1.14",
-    "niswah-app": "github:rayan2099/niswah999#showcase-exact-ui"
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@types/react": "^19.1.16",
