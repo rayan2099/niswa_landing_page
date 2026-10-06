@@ -25,6 +25,10 @@ export const copy: Dict = {
   'hero.stat1': { ar: 'لغتان', en: 'Two languages' },
   'hero.stat2': { ar: 'تقويم هجري وميلادي', en: 'Hijri and Gregorian' },
   'hero.stat3': { ar: 'خصوصية أولاً', en: 'Private by design' },
+  'hero.hint': {
+    ar: 'اضغطي على هاتف «شدة التدفق» لترَي شاشة «كيف نفسيتكِ اليوم؟»',
+    en: 'Tap the flow-intensity phone to see the mood check-in',
+  },
 
   'store.apple.small': { ar: 'حمّليه من', en: 'Download on the' },
   'store.google.small': { ar: 'احصلي عليه من', en: 'Get it on' },
@@ -142,7 +146,8 @@ export const screens: Record<string, { ar: string; en: string }> = {
   calendar: { ar: 'screens/calendar_ar.webp', en: 'screens/calendar_en.webp' },
   insights: { ar: 'screens/insights_ar.webp', en: 'screens/insights_en.webp' },
   profile: { ar: 'screens/profile_ar.webp', en: 'screens/profile_en.webp' },
-  log: { ar: 'screens/cycle_log_sheet_ar.webp', en: 'screens/cycle_log_sheet_ar.webp' },
+  log: { ar: 'screens/cycle_log_sheet_ar.webp', en: 'screens/cycle_log_sheet_en.webp' },
+  mood: { ar: 'screens/mood_ar.webp', en: 'screens/mood_en.webp' },
   prayer: { ar: 'screens/today_lower_ar.webp', en: 'screens/today_lower_ar.webp' },
 };
 

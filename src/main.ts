@@ -11,7 +11,12 @@ if (!showcase) document.body.classList.add('no-webgl');
 function render() {
   applyLang(lang);
   showcase?.setDirection(lang === 'ar');
-  showcase?.setScreens([screens.calendar[lang], screens.dashboard[lang], screens.insights[lang]]);
+  showcase?.setScreens([
+    { main: screens.calendar[lang] },
+    { main: screens.dashboard[lang] },
+    // Clicking the flow-intensity phone flips it to the mood check-in screen and back.
+    { main: screens.log[lang], alt: screens.mood[lang] },
+  ]);
 }
 
 document.querySelectorAll<HTMLButtonElement>('[data-lang-toggle]').forEach((btn) =>

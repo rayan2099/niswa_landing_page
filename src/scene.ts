@@ -16,7 +16,13 @@ type PhoneSlot = {
   base: THREE.Vector3;
   baseRot: THREE.Euler;
   phase: number;
+  /** Main screen, plus an optional alternate screen shown when the phone is clicked. */
+  urls: string[];
+  showAlt: boolean;
+  /** URL most recently requested for this phone; older loads are ignored. */
   url?: string;
+  /** Clock time when the last flip started, for the spin animation. */
+  flipAt: number;
 };
 
 function roundedRectShape(w: number, h: number, r: number) {
@@ -97,8 +103,10 @@ function buildPhone(frameColor: number, material: THREE.MeshBasicMaterial) {
   return group;
 }
 
+export type ScreenSlot = { main: string; alt?: string };
+
 export type Showcase = {
-  setScreens: (urls: string[]) => void;
+  setScreens: (slots: ScreenSlot[]) => void;
   setDirection: (rtl: boolean) => void;
 };
 
@@ -141,7 +149,16 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
     group.position.copy(l.pos);
     group.rotation.copy(l.rot);
     stage.add(group);
-    return { group, screen: material, base: l.pos.clone(), baseRot: l.rot.clone(), phase: i * 1.7 };
+    return {
+      group,
+      screen: material,
+      base: l.pos.clone(),
+      baseRot: l.rot.clone(),
+      phase: i * 1.7,
+      urls: [],
+      showAlt: false,
+      flipAt: -Infinity,
+    };
   });
 
   // Soft crescent of glowing particles behind the phones, echoing the Niswah moon logo.
@@ -188,9 +205,50 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
   const particles = new THREE.Points(pGeo, pMat);
   scene.add(particles);
 
+  const clock = new THREE.Clock();
   const pointer = new THREE.Vector2();
   window.addEventListener('pointermove', (e) => {
     pointer.set((e.clientX / window.innerWidth) * 2 - 1, (e.clientY / window.innerHeight) * 2 - 1);
+  });
+
+  const showSlot = (slot: PhoneSlot) => {
+    const url = slot.urls[slot.showAlt && slot.urls[1] ? 1 : 0];
+    if (!url) return;
+    slot.url = url;
+    loader.load(url, (tex) => {
+      if (slot.url !== url) {
+        tex.dispose();
+        return;
+      }
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      slot.screen.map?.dispose();
+      slot.screen.map = tex;
+      slot.screen.color.set(0xffffff);
+      slot.screen.needsUpdate = true;
+    });
+  };
+
+  // Clicking a phone that has an alternate screen flips it to that screen and back.
+  const raycaster = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  const phoneAt = (e: PointerEvent | MouseEvent) => {
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    raycaster.setFromCamera(ndc, camera);
+    const hit = raycaster.intersectObjects(phones.map((p) => p.group), true)[0];
+    if (!hit) return undefined;
+    return phones.find((p) => p.urls[1] && p.group.getObjectById(hit.object.id));
+  };
+  canvas.addEventListener('pointermove', (e) => {
+    canvas.style.cursor = phoneAt(e) ? 'pointer' : '';
+  });
+  canvas.addEventListener('click', (e) => {
+    const slot = phoneAt(e);
+    if (!slot) return;
+    slot.showAlt = !slot.showAlt;
+    slot.flipAt = clock.getElapsedTime();
+    showSlot(slot);
   });
 
   let mirror = 1;
@@ -210,12 +268,12 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
   resize();
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const clock = new THREE.Clock();
   const smooth = new THREE.Vector2();
 
   renderer.setAnimationLoop(() => {
     if (!visible) return;
-    const t = reduceMotion ? 0 : clock.getElapsedTime();
+    const now = clock.getElapsedTime();
+    const t = reduceMotion ? 0 : now;
     smooth.lerp(pointer, 0.05);
 
     stage.rotation.y = smooth.x * 0.18;
@@ -229,7 +287,7 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
       );
       p.group.rotation.set(
         p.baseRot.x + Math.sin(t * 0.5 + p.phase) * 0.03,
-        p.baseRot.y * mirror + Math.sin(t * 0.4 + p.phase) * 0.05,
+        p.baseRot.y * mirror + Math.sin(t * 0.4 + p.phase) * 0.05 + flipAngle(now - p.flipAt),
         p.baseRot.z * mirror,
       );
     });
@@ -238,25 +296,20 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
     renderer.render(scene, camera);
   });
 
+  // One full turn over 0.9s with ease-in-out; none when reduced motion is preferred.
+  function flipAngle(elapsed: number) {
+    if (reduceMotion || elapsed < 0 || elapsed > 0.9) return 0;
+    const k = elapsed / 0.9;
+    return Math.PI * 2 * (k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2);
+  }
+
   return {
-    setScreens(urls) {
-      urls.forEach((url, i) => {
+    setScreens(slots) {
+      slots.forEach((s, i) => {
         const slot = phones[i];
         if (!slot) return;
-        // Ignore loads superseded by a later language switch.
-        slot.url = url;
-        loader.load(url, (tex) => {
-          if (slot.url !== url) {
-            tex.dispose();
-            return;
-          }
-          tex.colorSpace = THREE.SRGBColorSpace;
-          tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-          slot.screen.map?.dispose();
-          slot.screen.map = tex;
-          slot.screen.color.set(0xffffff);
-          slot.screen.needsUpdate = true;
-        });
+        slot.urls = s.alt ? [s.main, s.alt] : [s.main];
+        showSlot(slot);
       });
     },
     setDirection(rtl) {
