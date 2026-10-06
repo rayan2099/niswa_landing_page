@@ -13,25 +13,25 @@ export const copy: Dict = {
   'nav.download': { ar: 'حمّلي التطبيق', en: 'Get the app' },
   'nav.lang': { ar: 'English', en: 'العربية' },
 
-  'hero.eyebrow': { ar: 'صُمّم للمرأة المسلمة', en: 'Made for Muslim women' },
+  'hero.eyebrow': { ar: 'رفيقتكِ في كل يوم', en: 'Made for Muslim women' },
   'hero.title': {
-    ar: 'دورتكِ وعبادتكِ،<br><em>بفهمٍ أعمق.</em>',
-    en: 'Your cycle and your worship,<br><em>understood.</em>',
+    ar: 'توقّعي دورتكِ،<br><em>واطمئنّي لصلاتكِ.</em>',
+    en: 'Your period, predicted.<br><em>Your prayers, clear.</em>',
   },
   'hero.body': {
-    ar: 'نسوة رفيقتكِ الخاصة: تتبّعٌ للدورة يفهم أحكام الحيض والطهارة، وحالة صلاة تتبع مذهبكِ، ورؤى هادئة تساعدكِ على فهم جسدكِ.',
-    en: 'Niswah is your private companion: cycle tracking that understands haid and tahara, a prayer status that follows your madhhab, and calm insights that help you understand your body.',
+    ar: 'تتوقّع نسوة موعد دورتكِ القادمة وأيام الإباضة من نمطكِ أنتِ، وتخبركِ متى تصلّين وما عليكِ قضاؤه حسب مذهبكِ، وتتابع معكِ مزاجكِ وطاقتكِ ونومكِ. وبياناتكِ تبقى لكِ وحدكِ.',
+    en: 'Niswah predicts your next period and ovulation from your own pattern, tells you when to pray and what to make up according to your madhhab, and tracks your mood, energy and sleep. Your data stays yours.',
   },
-  'hero.stat1': { ar: 'لغتان', en: 'Two languages' },
-  'hero.stat2': { ar: 'تقويم هجري وميلادي', en: 'Hijri and Gregorian' },
-  'hero.stat3': { ar: 'خصوصية أولاً', en: 'Private by design' },
+  'hero.stat1': { ar: 'توقّع الدورة والإباضة', en: 'Period and ovulation predictions' },
+  'hero.stat2': { ar: 'أحكام الصلاة حسب مذهبكِ', en: 'Prayer rulings for your madhhab' },
+  'hero.stat3': { ar: 'خصوصيتكِ أولاً', en: 'Private by design' },
   'hero.hint': {
-    ar: 'اضغطي على «كيف نفسيتكِ اليوم؟» في الهاتف الأوسط',
+    ar: 'اضغطي على بطاقة «كيف نفسيتكِ اليوم؟» في الشاشة الوسطى',
     en: 'Tap "How is your mood today?" on the middle phone',
   },
 
-  'store.apple.small': { ar: 'حمّليه من', en: 'Download on the' },
-  'store.google.small': { ar: 'احصلي عليه من', en: 'Get it on' },
+  'store.apple.small': { ar: 'متوفّر على', en: 'Download on the' },
+  'store.google.small': { ar: 'متوفّر على', en: 'Get it on' },
 
   'features.eyebrow': { ar: 'كل ما تحتاجينه', en: 'Everything in one place' },
   'features.title': { ar: 'صحتكِ وفقهكِ في تطبيق واحد', en: 'Your health and fiqh, together' },
