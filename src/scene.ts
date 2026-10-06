@@ -16,6 +16,7 @@ type PhoneSlot = {
   base: THREE.Vector3;
   baseRot: THREE.Euler;
   phase: number;
+  url?: string;
 };
 
 function roundedRectShape(w: number, h: number, r: number) {
@@ -242,7 +243,13 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
       urls.forEach((url, i) => {
         const slot = phones[i];
         if (!slot) return;
+        // Ignore loads superseded by a later language switch.
+        slot.url = url;
         loader.load(url, (tex) => {
+          if (slot.url !== url) {
+            tex.dispose();
+            return;
+          }
           tex.colorSpace = THREE.SRGBColorSpace;
           tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
           slot.screen.map?.dispose();
