@@ -160,6 +160,7 @@ export const screens: Record<string, { ar: string; en: string }> = {
   profile: { ar: 'screens/profile_ar.webp', en: 'screens/profile_en.webp' },
   log: { ar: 'screens/cycle_log_sheet_ar.webp', en: 'screens/cycle_log_sheet_en.webp' },
   mood: { ar: 'screens/mood_ar.webp', en: 'screens/mood_en.webp' },
+  moodCard: { ar: 'screens/mood_card_ar.webp', en: 'screens/mood_card_en.webp' },
   prayer: { ar: 'screens/today_lower_ar.webp', en: 'screens/today_lower_en.webp' },
 };
 
