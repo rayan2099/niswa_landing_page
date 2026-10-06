@@ -13,17 +13,17 @@ export const copy: Dict = {
   'nav.download': { ar: 'حمّلي التطبيق', en: 'Get the app' },
   'nav.lang': { ar: 'English', en: 'العربية' },
 
-  'hero.eyebrow': { ar: 'رفيقة المرأة المسلمة', en: 'Made for Muslim women' },
+  'hero.eyebrow': { ar: 'رفيقتكِ في كل يوم', en: 'Made for Muslim women' },
   'hero.title': {
-    ar: 'دورتكِ وعبادتكِ،<br><em>في طمأنينة.</em>',
-    en: 'Your cycle and your worship,<br><em>understood.</em>',
+    ar: 'توقّعي دورتكِ،<br><em>واطمئنّي لصلاتكِ.</em>',
+    en: 'Your period, predicted.<br><em>Your prayers, clear.</em>',
   },
   'hero.body': {
-    ar: 'نسوة تتابع معكِ دورتكِ يومًا بيوم، وتبيّن لكِ أحكام الحيض والطهارة والصلاة حسب مذهبكِ، مع رؤى هادئة تساعدكِ على فهم جسدكِ، وبخصوصية تامة.',
-    en: 'Niswah is your private companion: cycle tracking that understands haid and tahara, a prayer status that follows your madhhab, and calm insights that help you understand your body.',
+    ar: 'تتوقّع نسوة موعد دورتكِ القادمة وأيام الإباضة من نمطكِ أنتِ، وتخبركِ متى تصلّين وما عليكِ قضاؤه حسب مذهبكِ، وتتابع معكِ مزاجكِ وطاقتكِ ونومكِ. وبياناتكِ تبقى لكِ وحدكِ.',
+    en: 'Niswah predicts your next period and ovulation from your own pattern, tells you when to pray and what to make up according to your madhhab, and tracks your mood, energy and sleep. Your data stays yours.',
   },
-  'hero.stat1': { ar: 'بالعربية والإنجليزية', en: 'Two languages' },
-  'hero.stat2': { ar: 'التقويم الهجري والميلادي', en: 'Hijri and Gregorian' },
+  'hero.stat1': { ar: 'توقّع الدورة والإباضة', en: 'Period and ovulation predictions' },
+  'hero.stat2': { ar: 'أحكام الصلاة حسب مذهبكِ', en: 'Prayer rulings for your madhhab' },
   'hero.stat3': { ar: 'خصوصيتكِ أولاً', en: 'Private by design' },
   'hero.hint': {
     ar: 'اضغطي على بطاقة «كيف نفسيتكِ اليوم؟» في الشاشة الوسطى',
