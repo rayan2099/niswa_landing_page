@@ -19,6 +19,9 @@ type PhoneSlot = {
   /** Main screen, plus an optional alternate screen shown when the phone is clicked. */
   urls: string[];
   showAlt: boolean;
+  /** Part of the main screen (fractions from the top) that opens the alternate screen. */
+  hotspot?: { top: number; bottom: number };
+  screenMesh: THREE.Mesh;
   /** URL most recently requested for this phone; older loads are ignored. */
   url?: string;
   /** Clock time when the last flip started, for the spin animation. */
@@ -78,6 +81,7 @@ function buildPhone(frameColor: number, material: THREE.MeshBasicMaterial) {
 
   const screen = new THREE.Mesh(screenGeometry(), material);
   screen.position.z = PHONE_D / 2 + 0.003;
+  screen.name = 'screen';
   group.add(screen);
 
   // Dynamic Island.
@@ -103,7 +107,7 @@ function buildPhone(frameColor: number, material: THREE.MeshBasicMaterial) {
   return group;
 }
 
-export type ScreenSlot = { main: string; alt?: string };
+export type ScreenSlot = { main: string; alt?: string; hotspot?: { top: number; bottom: number } };
 
 export type Showcase = {
   setScreens: (slots: ScreenSlot[]) => void;
@@ -157,6 +161,7 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
       phase: i * 1.7,
       urls: [],
       showAlt: false,
+      screenMesh: group.getObjectByName('screen') as THREE.Mesh,
       flipAt: -Infinity,
     };
   });
@@ -238,7 +243,14 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
     raycaster.setFromCamera(ndc, camera);
     const hit = raycaster.intersectObjects(phones.map((p) => p.group), true)[0];
     if (!hit) return undefined;
-    return phones.find((p) => p.urls[1] && p.group.getObjectById(hit.object.id));
+    const slot = phones.find((p) => p.urls[1] && p.group.getObjectById(hit.object.id));
+    if (!slot) return undefined;
+    // On the main screen only the hotspot (e.g. the mood card) opens the alternate
+    // screen; once it is open, a click anywhere on the phone goes back.
+    if (slot.showAlt || !slot.hotspot) return slot;
+    if (hit.object !== slot.screenMesh || !hit.uv) return undefined;
+    const fromTop = 1 - hit.uv.y;
+    return fromTop >= slot.hotspot.top && fromTop <= slot.hotspot.bottom ? slot : undefined;
   };
   canvas.addEventListener('pointermove', (e) => {
     canvas.style.cursor = phoneAt(e) ? 'pointer' : '';
@@ -309,6 +321,7 @@ export function createShowcase(canvas: HTMLCanvasElement): Showcase | null {
         const slot = phones[i];
         if (!slot) return;
         slot.urls = s.alt ? [s.main, s.alt] : [s.main];
+        slot.hotspot = s.hotspot;
         showSlot(slot);
       });
     },

@@ -520,6 +520,35 @@ h2 {
   background: var(--bg);
 }
 
+/* Tappable mood card on the Today phone */
+.mood-phone .mood-hotspot {
+  position: absolute;
+  inset: 60% 5% 12%;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.55);
+  animation: hotspot-pulse 2.2s ease-in-out infinite;
+}
+
+.mood-phone.mood-open .mood-hotspot {
+  display: none;
+}
+
+.mood-phone.mood-open {
+  cursor: pointer;
+}
+
+@keyframes hotspot-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.5); }
+  50% { box-shadow: 0 0 0 7px rgba(13, 148, 136, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-phone .mood-hotspot {
+    animation: none;
+  }
+}
+
 /* Tour */
 .tour {
   background: linear-gradient(180deg, transparent, #fbf3f2 18%, #fbf3f2 82%, transparent);

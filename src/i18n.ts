@@ -26,8 +26,8 @@ export const copy: Dict = {
   'hero.stat2': { ar: 'تقويم هجري وميلادي', en: 'Hijri and Gregorian' },
   'hero.stat3': { ar: 'خصوصية أولاً', en: 'Private by design' },
   'hero.hint': {
-    ar: 'اضغطي على هاتف «شدة التدفق» لترَي شاشة «كيف نفسيتكِ اليوم؟»',
-    en: 'Tap the flow-intensity phone to see the mood check-in',
+    ar: 'اضغطي على «كيف نفسيتكِ اليوم؟» في الهاتف الأوسط',
+    en: 'Tap "How is your mood today?" on the middle phone',
   },
 
   'store.apple.small': { ar: 'حمّليه من', en: 'Download on the' },
@@ -86,8 +86,8 @@ export const copy: Dict = {
   's1.k': { ar: 'اليوم', en: 'Today' },
   's1.t': { ar: 'يومكِ في نظرة واحدة', en: 'Your day at a glance' },
   's1.d': {
-    ar: 'دائرة الدورة تُظهر أين أنتِ الآن، مع زر واحد لتسجيل الدورة ومتابعة حالتكِ النفسية.',
-    en: 'The cycle ring shows where you are today, with one tap to log your cycle and check in on your mood.',
+    ar: 'دائرة الدورة تُظهر أين أنتِ الآن، مع زر واحد لتسجيل الدورة. اضغطي على «كيف نفسيتكِ اليوم؟» لتسجيل المزاج والطاقة والنوم.',
+    en: 'The cycle ring shows where you are today, with one tap to log your cycle. Tap "How is your mood today?" to log mood, energy and sleep.',
   },
   's2.k': { ar: 'التسجيل', en: 'Daily log' },
   's2.t': { ar: 'تسجيل لطيف وسريع', en: 'Gentle, quick logging' },

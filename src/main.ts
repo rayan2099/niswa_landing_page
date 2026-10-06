@@ -4,6 +4,9 @@ import { createShowcase } from './scene';
 
 let lang: Lang = initialLang();
 
+/** Where the mood card sits on the Today screenshot, as fractions of its height. */
+const MOOD_CARD = { top: 0.6, bottom: 0.88 };
+
 const canvas = document.querySelector<HTMLCanvasElement>('#hero-canvas')!;
 const showcase = createShowcase(canvas);
 if (!showcase) document.body.classList.add('no-webgl');
@@ -13,9 +16,9 @@ function render() {
   showcase?.setDirection(lang === 'ar');
   showcase?.setScreens([
     { main: screens.calendar[lang] },
-    { main: screens.dashboard[lang] },
-    // Clicking the flow-intensity phone flips it to the mood check-in screen and back.
-    { main: screens.log[lang], alt: screens.mood[lang] },
+    // Tapping the "How is your mood today?" card opens the mood check-in, as in the app.
+    { main: screens.dashboard[lang], alt: screens.mood[lang], hotspot: MOOD_CARD },
+    { main: screens.log[lang] },
   ]);
 }
 
@@ -53,6 +56,20 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     el.addEventListener('pointerleave', () => (el.style.transform = ''));
   });
 }
+
+// Tour: tapping the mood card on the Today phone opens the mood check-in; tapping again goes back.
+document.querySelectorAll<HTMLElement>('[data-mood-phone]').forEach((phone) => {
+  const img = phone.querySelector<HTMLImageElement>('img')!;
+  phone.addEventListener('click', (e) => {
+    const r = img.getBoundingClientRect();
+    const fromTop = (e.clientY - r.top) / r.height;
+    const open = img.dataset.screen === 'mood';
+    if (!open && (fromTop < MOOD_CARD.top || fromTop > MOOD_CARD.bottom)) return;
+    img.dataset.screen = open ? 'dashboard' : 'mood';
+    img.src = screens[img.dataset.screen][lang];
+    phone.classList.toggle('mood-open', !open);
+  });
+});
 
 const header = document.querySelector('.site-header')!;
 window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 12), { passive: true });
