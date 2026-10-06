@@ -5,7 +5,7 @@ import { createShowcase } from './scene';
 let lang: Lang = initialLang();
 
 /** Where the mood card sits on the Today screenshot, as fractions of its height. */
-const MOOD_CARD = { top: 0.6, bottom: 0.88 };
+const MOOD_CARD = { top: 0.66, bottom: 0.86 };
 
 const canvas = document.querySelector<HTMLCanvasElement>('#hero-canvas')!;
 const showcase = createShowcase(canvas);
