@@ -3,12 +3,271 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#fffaf8" />
-    <meta name="description" content="Niswah — cycle, fiqh, pregnancy and personalized women's health guidance in one private experience." />
-    <title>Niswah — Your rhythm, understood.</title>
+    <meta name="theme-color" content="#FDFCFB" />
+    <meta
+      name="description"
+      content="Niswah | نسوة: cycle tracking, fiqh-aware prayer status and gentle insights for Muslim women, in Arabic and English."
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <title>نسوة | Niswah</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!--
+      Store links: the Google Play URL uses the app's real package id (com.niswah.niswah).
+      The App Store URL is a placeholder until the app has an App Store id; replace APP_STORE_URL below.
+    -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-apple" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M16.37 12.79c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.38-3.69ZM14.1 6.03c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.05-.52 2.68-1.28Z"
+        />
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 24 24">
+        <path fill="#00D7FE" d="M3.6 2.3c-.3.3-.4.8-.4 1.4v16.6c0 .6.2 1.1.4 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1Z" />
+        <path fill="#FFCE00" d="m16.1 15.6-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2.1-.1-.1Z" />
+        <path fill="#FF3A44" d="m16.2 15.5-3.2-3.2-9.4 9.4c.3.4.9.4 1.5.1l11.1-6.3" />
+        <path fill="#00F076" d="M16.2 9.1 5.1 2.8c-.6-.4-1.2-.3-1.5.1l9.4 9.4 3.2-3.2Z" />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="Niswah">
+          <img src="logo.png" alt="" width="34" height="37" />
+          <span class="brand-name"><span class="ar-only">نسوة</span><span class="en-only">Niswah</span></span>
+        </a>
+        <nav class="nav-links">
+          <a href="#features" data-i18n="nav.features">المزايا</a>
+          <a href="#tour" data-i18n="nav.tour">جولة في التطبيق</a>
+          <a href="#privacy" data-i18n="nav.privacy">الخصوصية</a>
+        </nav>
+        <div class="header-actions">
+          <button class="lang-toggle" type="button" data-lang-toggle data-i18n="nav.lang">English</button>
+          <a class="btn btn-primary btn-sm" href="#download" data-i18n="nav.download">حمّلي التطبيق</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow" data-i18n="hero.eyebrow">صُمّم للمرأة المسلمة</span>
+            <h1 data-i18n="hero.title">دورتكِ وعبادتكِ،<br /><em>بفهمٍ أعمق.</em></h1>
+            <p class="lead" data-i18n="hero.body"></p>
+            <div class="store-row">
+              <a class="store-btn" data-store="apple" href="#APP_STORE_URL" rel="noopener">
+                <svg><use href="#i-apple" /></svg>
+                <span><small data-i18n="store.apple.small">حمّليه من</small><strong>App Store</strong></span>
+              </a>
+              <a
+                class="store-btn"
+                data-store="google"
+                href="https://play.google.com/store/apps/details?id=com.niswah.niswah"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg><use href="#i-play" /></svg>
+                <span><small data-i18n="store.google.small">احصلي عليه من</small><strong>Google Play</strong></span>
+              </a>
+            </div>
+            <ul class="hero-stats">
+              <li data-i18n="hero.stat1">لغتان</li>
+              <li data-i18n="hero.stat2">تقويم هجري وميلادي</li>
+              <li data-i18n="hero.stat3">خصوصية أولاً</li>
+            </ul>
+          </div>
+          <div class="hero-stage">
+            <canvas id="hero-canvas" aria-label="Niswah app screens on three iPhones"></canvas>
+            <div class="hero-fallback" aria-hidden="true">
+              <div class="iphone"><img data-screen="dashboard" alt="" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="features.eyebrow"></span>
+            <h2 data-i18n="features.title"></h2>
+            <p data-i18n="features.body"></p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature reveal">
+              <span class="f-icon rose"><svg viewBox="0 0 24 24"><path d="M12 2.7s-6 6.6-6 11.1a6 6 0 0 0 12 0C18 9.3 12 2.7 12 2.7Z" /></svg></span>
+              <h3 data-i18n="f1.t"></h3>
+              <p data-i18n="f1.d"></p>
+            </article>
+            <article class="feature reveal">
+              <span class="f-icon green"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" /></svg></span>
+              <h3 data-i18n="f2.t"></h3>
+              <p data-i18n="f2.d"></p>
+            </article>
+            <article class="feature reveal">
+              <span class="f-icon amber"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg></span>
+              <h3 data-i18n="f3.t"></h3>
+              <p data-i18n="f3.d"></p>
+            </article>
+            <article class="feature reveal">
+              <span class="f-icon teal"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="3" /><path d="M8 2.5v4M16 2.5v4M3 9.5h18" /></svg></span>
+              <h3 data-i18n="f4.t"></h3>
+              <p data-i18n="f4.d"></p>
+            </article>
+            <article class="feature reveal">
+              <span class="f-icon rose"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg></span>
+              <h3 data-i18n="f5.t"></h3>
+              <p data-i18n="f5.d"></p>
+            </article>
+            <article class="feature reveal">
+              <span class="f-icon teal"><svg viewBox="0 0 24 24"><path d="M9.5 3 11 8l5 1.5-5 1.5-1.5 5L8 11 3 9.5 8 8Z" /><path d="m18 13 .9 2.6 2.6.9-2.6.9L18 20l-.9-2.6-2.6-.9 2.6-.9Z" /></svg></span>
+              <h3 data-i18n="f6.t"></h3>
+              <p data-i18n="f6.d"></p>
+            </article>
+            <article class="feature reveal">
+              <span class="f-icon violet"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" /><path d="M2.5 20a6.5 6.5 0 0 1 13 0" /><circle cx="17.5" cy="9" r="2.5" /><path d="M17 14.2a5 5 0 0 1 4.5 4.8" /></svg></span>
+              <h3 data-i18n="f7.t"></h3>
+              <p data-i18n="f7.d"></p>
+            </article>
+            <article class="feature reveal">
+              <span class="f-icon amber"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6Z" /><path d="M14 3v5h5M9.5 13h6M9.5 17h6" /></svg></span>
+              <h3 data-i18n="f8.t"></h3>
+              <p data-i18n="f8.d"></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="tour" class="section tour">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="tour.eyebrow"></span>
+            <h2 data-i18n="tour.title"></h2>
+          </div>
+
+          <div class="tour-row reveal">
+            <div class="tour-phones">
+              <div class="iphone tilt"><img data-screen="dashboard" alt="" /></div>
+            </div>
+            <div class="tour-copy">
+              <span class="tag" data-i18n="s1.k"></span>
+              <h3 data-i18n="s1.t"></h3>
+              <p data-i18n="s1.d"></p>
+            </div>
+          </div>
+
+          <div class="tour-row flip reveal">
+            <div class="tour-phones">
+              <div class="iphone tilt"><img data-screen="log" alt="" /></div>
+            </div>
+            <div class="tour-copy">
+              <span class="tag" data-i18n="s2.k"></span>
+              <h3 data-i18n="s2.t"></h3>
+              <p data-i18n="s2.d"></p>
+            </div>
+          </div>
+
+          <div class="tour-row reveal">
+            <div class="tour-phones">
+              <div class="iphone tilt"><img data-screen="prayer" alt="" /></div>
+            </div>
+            <div class="tour-copy">
+              <span class="tag green" data-i18n="s3.k"></span>
+              <h3 data-i18n="s3.t"></h3>
+              <p data-i18n="s3.d"></p>
+            </div>
+          </div>
+
+          <div class="tour-row flip reveal">
+            <div class="tour-phones pair">
+              <div class="iphone tilt"><img data-screen="calendar" alt="" /></div>
+              <div class="iphone tilt back"><img data-screen="insights" alt="" /></div>
+            </div>
+            <div class="tour-copy">
+              <span class="tag green" data-i18n="s4.k"></span>
+              <h3 data-i18n="s4.t"></h3>
+              <p data-i18n="s4.d"></p>
+              <span class="tag" data-i18n="s5.k"></span>
+              <h3 data-i18n="s5.t"></h3>
+              <p data-i18n="s5.d"></p>
+            </div>
+          </div>
+
+          <div class="tour-row reveal">
+            <div class="tour-phones">
+              <div class="iphone tilt"><img data-screen="profile" alt="" /></div>
+            </div>
+            <div class="tour-copy">
+              <span class="tag" data-i18n="s6.k"></span>
+              <h3 data-i18n="s6.t"></h3>
+              <p data-i18n="s6.d"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy" class="section">
+        <div class="wrap">
+          <div class="privacy reveal">
+            <div>
+              <h2 data-i18n="privacy.title"></h2>
+              <p data-i18n="privacy.body"></p>
+            </div>
+            <ul>
+              <li data-i18n="privacy.p1"></li>
+              <li data-i18n="privacy.p2"></li>
+              <li data-i18n="privacy.p3"></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="section">
+        <div class="wrap">
+          <div class="cta reveal">
+            <img src="logo.png" alt="" width="64" height="69" />
+            <h2 data-i18n="cta.title"></h2>
+            <p data-i18n="cta.body"></p>
+            <div class="store-row center">
+              <a class="store-btn light" data-store="apple" href="#APP_STORE_URL" rel="noopener">
+                <svg><use href="#i-apple" /></svg>
+                <span><small data-i18n="store.apple.small"></small><strong>App Store</strong></span>
+              </a>
+              <a
+                class="store-btn light"
+                data-store="google"
+                href="https://play.google.com/store/apps/details?id=com.niswah.niswah"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg><use href="#i-play" /></svg>
+                <span><small data-i18n="store.google.small"></small><strong>Google Play</strong></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="brand">
+          <img src="logo.png" alt="" width="28" height="30" />
+          <span class="brand-name"><span class="ar-only">نسوة</span><span class="en-only">Niswah</span></span>
+        </div>
+        <p data-i18n="footer.note"></p>
+        <button class="lang-toggle" type="button" data-lang-toggle data-i18n="nav.lang"></button>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
