@@ -572,15 +572,6 @@ h2 {
   position: relative;
 }
 
-.tour-phones.pair .iphone.back {
-  margin-inline-start: -90px;
-  margin-top: 70px;
-}
-
-.tour-phones.pair .iphone:first-child {
-  z-index: 1;
-}
-
 .tour-copy {
   max-width: 460px;
 }
@@ -917,12 +908,6 @@ h2 {
   .iphone::before {
     top: 18px;
     height: 22px;
-  }
-  .tour-phones.pair .iphone {
-    width: 190px;
-  }
-  .tour-phones.pair .iphone.back {
-    margin-inline-start: -60px;
   }
   .hero-stage {
     height: 400px;
