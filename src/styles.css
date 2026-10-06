@@ -616,6 +616,79 @@ h2 {
   color: var(--teal);
 }
 
+/* Mood check-in section */
+.mood-section {
+  background: linear-gradient(180deg, transparent, #f2faf6 20%, #f2faf6 80%, transparent);
+}
+
+.mood-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.mood-step {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.mood-step figcaption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 280px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.step-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.mood-arrow svg {
+  width: 56px;
+  height: 28px;
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+[dir='rtl'] .mood-arrow svg {
+  transform: scaleX(-1);
+}
+
+.mood-chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mood-chips li {
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, white);
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* Privacy */
 .privacy {
   display: grid;
@@ -774,6 +847,16 @@ h2 {
   }
   .tour-copy {
     margin-inline: auto;
+  }
+  .mood-flow {
+    flex-direction: column;
+    gap: 28px;
+  }
+  .mood-arrow svg {
+    transform: rotate(90deg);
+  }
+  [dir='rtl'] .mood-arrow svg {
+    transform: rotate(90deg);
   }
   .privacy {
     grid-template-columns: 1fr;

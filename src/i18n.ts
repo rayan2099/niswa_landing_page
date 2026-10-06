@@ -120,6 +120,18 @@ export const copy: Dict = {
     en: 'Choose your city for prayer times, and switch on marriage and pregnancy tools when you need them.',
   },
 
+  'mood.eyebrow': { ar: 'متابعة الحالة النفسية', en: 'Mental state check-in' },
+  'mood.title': { ar: 'كيف نفسيتكِ اليوم؟', en: 'How is your mood today?' },
+  'mood.body': {
+    ar: 'من بطاقة واحدة في شاشة اليوم، سجّلي مزاجكِ وطاقتكِ ونومكِ في ثوانٍ، بشكل مستقل عن بيانات الدورة والدم، لتفهمي نمطكِ بهدوء.',
+    en: 'From one card on the Today screen, log your mood, energy and sleep in seconds, separately from your cycle data, and get to know your pattern.',
+  },
+  'mood.step1': { ar: 'اضغطي «تسجيل» على بطاقة «كيف نفسيتكِ اليوم؟»', en: 'Tap "Log" on the "How is your mood today?" card' },
+  'mood.step2': { ar: 'اختاري من ١ إلى ٥ ثم احفظي الحالة', en: 'Pick 1 to 5 for each, then save' },
+  'mood.c1': { ar: 'المزاج', en: 'Mood' },
+  'mood.c2': { ar: 'الطاقة', en: 'Energy' },
+  'mood.c3': { ar: 'النوم', en: 'Sleep' },
+
   'privacy.title': { ar: 'بياناتكِ لكِ وحدكِ', en: 'Your data stays yours' },
   'privacy.body': {
     ar: 'يمكنكِ استخدام نسوة كضيفة، والمشاركة في المجتمع دون كشف هويتكِ. والتقارير لا تخرج من التطبيق إلا عندما تشاركينها أنتِ.',
