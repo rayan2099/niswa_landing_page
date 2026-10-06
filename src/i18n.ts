@@ -13,25 +13,25 @@ export const copy: Dict = {
   'nav.download': { ar: 'حمّلي التطبيق', en: 'Get the app' },
   'nav.lang': { ar: 'English', en: 'العربية' },
 
-  'hero.eyebrow': { ar: 'صُمّم للمرأة المسلمة', en: 'Made for Muslim women' },
+  'hero.eyebrow': { ar: 'رفيقة المرأة المسلمة', en: 'Made for Muslim women' },
   'hero.title': {
-    ar: 'دورتكِ وعبادتكِ،<br><em>بفهمٍ أعمق.</em>',
+    ar: 'دورتكِ وعبادتكِ،<br><em>في طمأنينة.</em>',
     en: 'Your cycle and your worship,<br><em>understood.</em>',
   },
   'hero.body': {
-    ar: 'نسوة رفيقتكِ الخاصة: تتبّعٌ للدورة يفهم أحكام الحيض والطهارة، وحالة صلاة تتبع مذهبكِ، ورؤى هادئة تساعدكِ على فهم جسدكِ.',
+    ar: 'نسوة تتابع معكِ دورتكِ يومًا بيوم، وتبيّن لكِ أحكام الحيض والطهارة والصلاة حسب مذهبكِ، مع رؤى هادئة تساعدكِ على فهم جسدكِ، وبخصوصية تامة.',
     en: 'Niswah is your private companion: cycle tracking that understands haid and tahara, a prayer status that follows your madhhab, and calm insights that help you understand your body.',
   },
-  'hero.stat1': { ar: 'لغتان', en: 'Two languages' },
-  'hero.stat2': { ar: 'تقويم هجري وميلادي', en: 'Hijri and Gregorian' },
-  'hero.stat3': { ar: 'خصوصية أولاً', en: 'Private by design' },
+  'hero.stat1': { ar: 'بالعربية والإنجليزية', en: 'Two languages' },
+  'hero.stat2': { ar: 'التقويم الهجري والميلادي', en: 'Hijri and Gregorian' },
+  'hero.stat3': { ar: 'خصوصيتكِ أولاً', en: 'Private by design' },
   'hero.hint': {
-    ar: 'اضغطي على «كيف نفسيتكِ اليوم؟» في الهاتف الأوسط',
+    ar: 'اضغطي على بطاقة «كيف نفسيتكِ اليوم؟» في الشاشة الوسطى',
     en: 'Tap "How is your mood today?" on the middle phone',
   },
 
-  'store.apple.small': { ar: 'حمّليه من', en: 'Download on the' },
-  'store.google.small': { ar: 'احصلي عليه من', en: 'Get it on' },
+  'store.apple.small': { ar: 'متوفّر على', en: 'Download on the' },
+  'store.google.small': { ar: 'متوفّر على', en: 'Get it on' },
 
   'features.eyebrow': { ar: 'كل ما تحتاجينه', en: 'Everything in one place' },
   'features.title': { ar: 'صحتكِ وفقهكِ في تطبيق واحد', en: 'Your health and fiqh, together' },
