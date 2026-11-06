@@ -141,6 +141,15 @@ export const copy: Dict = {
   'privacy.p2': { ar: 'مجتمع مجهول الهوية', en: 'Anonymous community' },
   'privacy.p3': { ar: 'تقارير تشاركينها بنفسكِ', en: 'Reports you choose to share' },
 
+  'nav.contact': { ar: 'تواصلي معنا', en: 'Contact us' },
+  'contact.title': { ar: 'تواصلي معنا', en: 'Contact us' },
+  'contact.body': {
+    ar: 'لأي سؤال أو ملاحظة عن التطبيق، راسلينا أو اتصلي بنا.',
+    en: 'Questions or feedback about the app? Email or call us.',
+  },
+  'contact.email': { ar: 'البريد الإلكتروني', en: 'Email' },
+  'contact.phone': { ar: 'الهاتف', en: 'Phone' },
+
   'cta.title': { ar: 'ابدئي مع نسوة اليوم', en: 'Start with Niswah today' },
   'cta.body': {
     ar: 'متوفر على iPhone وAndroid، بالعربية والإنجليزية.',
