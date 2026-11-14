@@ -1,6 +1,7 @@
 import './styles.css';
 import { applyLang, initialLang, screens, type Lang } from './i18n';
 import { createShowcase } from './scene';
+import { initTracking } from './track';
 
 let lang: Lang = initialLang();
 
@@ -30,6 +31,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-lang-toggle]').forEach((btn)
 );
 
 render();
+initTracking(() => lang);
 
 // Reveal sections as they scroll into view.
 const io = new IntersectionObserver(

@@ -19,8 +19,8 @@ export const copy: Dict = {
     en: 'Your period, predicted.<br><em>Your prayers, clear.</em>',
   },
   'hero.body': {
-    ar: 'تتوقّع نسوة موعد دورتكِ القادمة وأيام الإباضة من نمطكِ أنتِ، وتخبركِ متى تصلّين وما عليكِ قضاؤه حسب مذهبكِ، وتتابع معكِ مزاجكِ وطاقتكِ ونومكِ. وبياناتكِ تبقى لكِ وحدكِ.',
-    en: 'Niswah predicts your next period and ovulation from your own pattern, tells you when to pray and what to make up according to your madhhab, and tracks your mood, energy and sleep. Your data stays yours.',
+    ar: 'تتوقّع نسوة موعد دورتكِ القادمة وأيام الإباضة من نمطكِ أنتِ، وتخبركِ متى تصلّين حسب مذهبكِ، وتتابع معكِ مزاجكِ وطاقتكِ ونومكِ. وبياناتكِ تبقى لكِ وحدكِ.',
+    en: 'Niswah predicts your next period and ovulation from your own pattern, tells you when to pray according to your madhhab, and tracks your mood, energy and sleep. Your data stays yours.',
   },
   'hero.stat1': { ar: 'توقّع الدورة والإباضة', en: 'Period and ovulation predictions' },
   'hero.stat2': { ar: 'أحكام الصلاة حسب مذهبكِ', en: 'Prayer rulings for your madhhab' },
@@ -31,7 +31,7 @@ export const copy: Dict = {
   },
 
   'store.apple.small': { ar: 'متوفّر على', en: 'Download on the' },
-  'store.google.small': { ar: 'متوفّر على', en: 'Get it on' },
+  'store.google.soon': { ar: 'قريباً على', en: 'Coming soon to' },
 
   'features.eyebrow': { ar: 'كل ما تحتاجينه', en: 'Everything in one place' },
   'features.title': { ar: 'صحتكِ وفقهكِ في تطبيق واحد', en: 'Your health and fiqh, together' },

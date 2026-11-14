@@ -964,3 +964,10 @@ h2 {
     min-width: 0;
   }
 }
+
+/* Android isn't published yet: the Play badge is shown as "coming soon", not a link. */
+.store-btn.soon {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}

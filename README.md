@@ -11,3 +11,12 @@ npm install
 npm run dev     # local dev server
 npm run build   # type-check and build to dist/
 ```
+
+## Conversion tracking (TikTok growth agent)
+
+`src/track.ts` sends `landing_visit` and App Store `store_click` events to the
+`growth-track` Supabase function. It is off unless `VITE_GROWTH_TRACK_URL` is set
+in Vercel, e.g. `https://<project-ref>.supabase.co/functions/v1/growth-track`.
+It sends only campaign tags, a random browser id, page language and a coarse
+referrer kind; no cookies, and nothing when the browser sends DNT or GPC.
+Tag TikTok links like `https://niswah.app/?utm_source=tiktok&utm_medium=bio&utm_campaign=tiktok_bio`.
